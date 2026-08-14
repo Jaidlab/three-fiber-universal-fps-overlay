@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Three Fiber Universal FPS Overlay",
+  "version": "0.1.0",
+  "description": "Displays actual render FPS over WebGL and WebGPU canvases on arbitrary pages, including React Three Fiber.",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true,
+      "match_origin_as_fallback": true,
+      "world": "MAIN"
+    }
+  ]
+}

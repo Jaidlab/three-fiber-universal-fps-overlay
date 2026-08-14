@@ -1,0 +1,27 @@
+name: build
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v6.0.2
+    - name: setupBun
+      uses: oven-sh/setup-bun@v2.2.0
+    - name: install
+      run: bun install --frozen-lockfile
+    - name: build
+      run: bun run build
+    - name: package
+      run: |
+        cd dist
+        zip -r ../three-fiber-universal-fps-overlay.zip .
+    - name: uploadArtifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: three-fiber-universal-fps-overlay
+        path: three-fiber-universal-fps-overlay.zip

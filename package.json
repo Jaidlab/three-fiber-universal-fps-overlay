@@ -2,29 +2,28 @@
   "name": "three-fiber-universal-fps-overlay",
   "version": "0.1.0",
   "type": "module",
-  "exports": {
-    ".": {
-      "default": "./src/main.ts"
-    }
-  },
-  "imports": {
-    "#src/*": "./src/*",
-    "#root/*": "./*"
-  },
+  "private": true,
+  "funding": "https://github.com/sponsors/Jaid",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jaidlab/three-fiber-universal-fps-overlay.git"
   },
+  "imports": {
+    "#src/*": "./src/*"
+  },
   "scripts": {
-    "test": "bun test --max-concurrency 1 ./test"
+    "build": "bun run ./script/build.ts",
+    "check": "bun run lint && bun run typecheck && bun run test && bun run build",
+    "lint": "eslint .",
+    "test": "bun test --max-concurrency 1 ./test",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "bun-types": "^1.3.14",
     "eslint": "^10.8.1",
     "eslint-config-jaid": "^26.0.0",
     "tsconfig-jaid-bun": "^15.2.0",
-    "typescript": "^7.0.2"
-  },
-  "funding": "https://github.com/sponsors/Jaid",
-  "license": "MIT"
+    "typescript": "~6.0.0"
+  }
 }
