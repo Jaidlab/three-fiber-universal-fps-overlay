@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:jaidlab/three-fiber-universal-fps-overlay.git"
+    "url": "git+https://github.com/jaidlab/three-fiber-universal-fps-overlay.git"
   },
   "scripts": {
     "test": "bun test --max-concurrency 1"
